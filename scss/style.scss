@@ -21,6 +21,10 @@ $font-size-body: 0.813rem;
 
 // Global Style
 
+// * {
+//     outline: 1px solid pink;
+// }
+
 body {
     font-family: $font;
     padding: 1.5rem;
@@ -39,6 +43,7 @@ body {
     box-shadow: 0px 25px 25px 0px rgba(0, 0, 0, 0.05);
     max-width: 45rem;
 
+    // Image 
     .image {
         max-height: 200px;
         object-fit: cover;
@@ -46,6 +51,7 @@ body {
         width: 100%;
     }
 
+    // Text
     .text-container {
         padding: 2.25rem 2rem 1.5rem;
 
@@ -62,17 +68,29 @@ body {
         }
     }
 
-    .author-container {
+    // Author
+    .bottom-container {
+        position: relative;
+    }
+
+    .author-button-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 1rem 2rem;
 
-        .author {
+        .author-only {
             display: flex;
             gap: 1rem;
             align-items: center;
 
+            .sr-only {
+                visibility: hidden;
+                height: 0;
+                width: 0;
+                margin: 0;
+            }
+            
             .author-avatar {
                 max-width: 2.5rem;
                 height: 2.5rem;
@@ -80,22 +98,17 @@ body {
             }
 
             .author-info {
-                .sr-only {
-                    visibility: hidden;
-                    height: 0;
-                    width: 0;
-                    margin: 0;
-                }
-
                 .author-name {
                     color: $dark-grayish-blue;
                     font-size: $font-size-body;
                     font-weight: $weight-700;
+                    margin: 0;
                 }
 
                 .author-date {
                     margin: 0;
                 }
+
             }
         }
     }
@@ -105,13 +118,55 @@ body {
         line-height: 1.5;
         color: $desaturated-dark-blue;
     }
+}
 
-    .hidden {
-        display: none;
+// Button & Pop-up Design
+.share-btn {
+    padding: 0.75rem;
+    border: none;
+    background-color: $light-grayish-blue;
+    border-radius: 50%;
+    z-index: 20;
+}
+
+.share-pop {
+    position: absolute;
+    background-color: $dark-grayish-blue;
+    display: flex;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 1rem 2rem; 
+    gap: 1rem;
+    transform: translateY(100%);
+    transition: all 0.2s;
+
+    .share-text {
+        color: $grayish-blue;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        margin: 0;
+        font-size: $font-size-body;
+    }
+
+    .share-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 1.5rem;
+        margin: 0;
     }
 }
 
-@media screen and (min-width: 56rem) {
+.share-pop.active {
+    transform: translate(0);
+}
+
+
+// Desktop Design
+@media screen and (min-width: 31em) {
     .container {
         display: grid;
         grid-template-columns: 0.5fr 1fr;
@@ -130,5 +185,42 @@ body {
     }
 }
 
+@media screen and (min-width: 57.5em) {
+    .share-pop {
+        visibility: hidden;
+        position: fixed;
+        opacity: 0;
+        top: 50%;
+        left: 50%;
+        width: max-content;
+        height: max-content;
+        transform: translate(180px, 10px);
+        border-radius: 10px;
+        z-index: 999;
+        transition: all 0.2s ease-in;
 
+        &::after {
+            content: '';
+            position: absolute;
+            border-top: 12px solid $dark-grayish-blue;
+            border-right: 12px solid transparent;
+            border-left: 12px solid transparent;
+            transform: translate(-50%);
+            left: 50%;
+            top: 52px;
+            box-shadow: 0px 25px 25px 0px rgba(0, 0, 0, 0.05);
+        }
+
+        &.active {
+            visibility: visible;
+            opacity: 1;
+            transform: translate(180px, 10px);
+        }
+    }
+}
+
+
+
+
+    
 

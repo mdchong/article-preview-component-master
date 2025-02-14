@@ -27,38 +27,46 @@
         <p class="body-text">Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I've got some simple tips to help you make any room feel complete.</p>
       </div>
 
-      <div class="author-container">
-        <div class="author">
-          <img src="./images/avatar-michelle.jpg" alt="Michelle Appleton's profile photo" class="author-avatar">
-          <div class="author-info">
-            <p class="sr-only">Written by:</p>
-            <p class="author-name">Michelle Appleton</p>
-            <p class="author-date">26 Jun 2020</p>
+      <div class="bottom-container">
+        <div class="author-button-container">
+          <div class="author-only">
+            <img src="./images/avatar-michelle.jpg" alt="Michelle Appleton's profile photo" class="author-avatar">
+            <div class="author-info">
+              <p class="sr-only">Written by:</p>
+              <p class="author-name">Michelle Appleton</p>
+              <p class="author-date">26 Jun 2020</p>
+            </div>
           </div>
-        </div>
-        
-        <div class="share">
-          <div class="hidden" id="share">
-            <p class="share-text">Share</p>
-            <a href="#" aria-label="Share on Facebook">
-              <img src="./images/icon-facebook.svg" alt="">
-            </a>
-
-            <a href="#" aria-label="Share on Twitter">
-              <img src="./images/icon-twitter.svg" alt="">
-            </a>
-
-            <a href="#" aria-label="Share on Pinterest">
-              <img src="./images/icon-pinterest.svg" alt="">
-            </a>
-          </div>
-
-          <button aria-label="Share this article">
+          <button aria-label="Share this article" class="share-btn">
             <img src="./images/icon-share.svg" alt="">
           </button>
+        </div>
+
+        <div class="share-pop" id="share-pop">
+          <p class="share-text">Share</p>
+          <ul class="share-list">
+            <li class="list-element">
+              <a href="#" aria-label="Share on Facebook">
+                <img src="./images/icon-facebook.svg" alt="" class="share-icon">
+              </a>
+            </li>
+            
+            <li class="list-element">
+              <a href="#" aria-label="Share on Twitter">
+                <img src="./images/icon-twitter.svg" alt="" class="share-icon">
+              </a>
+            </li>
+  
+            <li class="list-element">
+            <a href="#" aria-label="Share on Pinterest">
+              <img src="./images/icon-pinterest.svg" alt="" class="share-icon">
+            </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </main>
+  <script src="index.js"></script>
 </body>
 </html>
